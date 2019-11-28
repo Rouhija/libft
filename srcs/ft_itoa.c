@@ -6,14 +6,13 @@
 /*   By: srouhe <srouhe@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/17 18:09:29 by srouhe            #+#    #+#             */
-/*   Updated: 2019/10/18 18:09:23 by srouhe           ###   ########.fr       */
+/*   Updated: 2019/11/27 17:37:44 by srouhe           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
 
-static char		*ft_populate_string(char *r, int i, unsigned int nb)
+static char		*ft_populate_string(char *r, int i, long long nb)
 {
 	while (nb >= 10)
 	{
@@ -24,23 +23,22 @@ static char		*ft_populate_string(char *r, int i, unsigned int nb)
 	return (r);
 }
 
-char			*ft_itoa(int n)
+char			*ft_itoa(long long nb)
 {
-	int				i;
-	unsigned int	flag;
-	unsigned int	nb;
-	unsigned int	len;
-	char			*r;
+	int			i;
+	int			flag;
+	int			len;
+	char		*r;
 
 	flag = 0;
-	if (n < 0)
+	if (nb + 1 == -9223372036854775807)
+		return (ft_strdup("-9223372036854775808"));
+	if (nb < 0)
 	{
-		nb = (unsigned int)n * -1;
+		nb *= -1;
 		flag = 1;
 	}
-	else
-		nb = (unsigned int)n;
-	len = ft_count_digits(nb);
+	len = ft_count_digits(nb, 10);
 	if (!(r = (char *)malloc(sizeof(char) * (len + 1 + flag))))
 		return (NULL);
 	i = len - 1 + flag;

@@ -1,32 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_strchr_len.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: srouhe <srouhe@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/16 18:47:19 by srouhe            #+#    #+#             */
-/*   Updated: 2019/10/17 12:22:30 by srouhe           ###   ########.fr       */
+/*   Created: 2019/11/10 12:58:00 by srouhe            #+#    #+#             */
+/*   Updated: 2019/11/11 12:24:31 by srouhe           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memcpy(void *dest, const void *src, size_t n)
-{
-	unsigned char	*cdest;
-	unsigned char	*csrc;
-	unsigned int	i;
+/*
+** seek for any char of c in s and return the index of c if found, otherwise 0.
+*/
 
-	if (!dest && !src)
-		return (NULL);
-	cdest = (unsigned char *)dest;
-	csrc = (unsigned char *)src;
+size_t		ft_strchr_len(const char *s, int c)
+{
+	size_t		i;
+
 	i = 0;
-	while (i < n)
+	while (s[i])
 	{
-		cdest[i] = csrc[i];
+		if (s[i] == c)
+			return (i);
 		i++;
 	}
-	return (dest);
+	if (s[i] == c)
+		return (i);
+	return (0);
 }

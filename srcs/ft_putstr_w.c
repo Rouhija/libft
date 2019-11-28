@@ -1,32 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_putstr_w.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: srouhe <srouhe@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/16 18:47:19 by srouhe            #+#    #+#             */
-/*   Updated: 2019/10/17 12:22:30 by srouhe           ###   ########.fr       */
+/*   Created: 2019/11/14 15:56:21 by srouhe            #+#    #+#             */
+/*   Updated: 2019/11/25 13:16:40 by srouhe           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memcpy(void *dest, const void *src, size_t n)
+char		*ft_putstr_w(wchar_t *str)
 {
-	unsigned char	*cdest;
-	unsigned char	*csrc;
-	unsigned int	i;
+	char	*ret;
 
-	if (!dest && !src)
+	if (!str)
 		return (NULL);
-	cdest = (unsigned char *)dest;
-	csrc = (unsigned char *)src;
-	i = 0;
-	while (i < n)
+	ret = ft_putchar_w(*str);
+	str++;
+	while (*str)
 	{
-		cdest[i] = csrc[i];
-		i++;
+		ret = ft_strjoin(ret, ft_putchar_w(*str));
+		str++;
 	}
-	return (dest);
+	return (ret);
 }

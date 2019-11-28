@@ -1,32 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_strrev.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: srouhe <srouhe@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/16 18:47:19 by srouhe            #+#    #+#             */
-/*   Updated: 2019/10/17 12:22:30 by srouhe           ###   ########.fr       */
+/*   Created: 2019/11/11 13:15:50 by srouhe            #+#    #+#             */
+/*   Updated: 2019/11/11 13:17:27 by srouhe           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-void	*ft_memcpy(void *dest, const void *src, size_t n)
+char	*ft_strrev(char *str)
 {
-	unsigned char	*cdest;
-	unsigned char	*csrc;
-	unsigned int	i;
+	char	*beg;
+	char	*rev;
+	char	*end;
+	char	temp;
 
-	if (!dest && !src)
-		return (NULL);
-	cdest = (unsigned char *)dest;
-	csrc = (unsigned char *)src;
-	i = 0;
-	while (i < n)
+	beg = str;
+	rev = str;
+	end = str;
+	while (*end)
+		end++;
+	end--;
+	while (beg < end)
 	{
-		cdest[i] = csrc[i];
-		i++;
+		temp = *beg;
+		*beg = *end;
+		*end = temp;
+		end--;
+		beg++;
 	}
-	return (dest);
+	return (rev);
 }

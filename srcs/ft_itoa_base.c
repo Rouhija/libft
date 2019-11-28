@@ -1,32 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_itoa_base.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: srouhe <srouhe@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/16 18:47:19 by srouhe            #+#    #+#             */
-/*   Updated: 2019/10/17 12:22:30 by srouhe           ###   ########.fr       */
+/*   Created: 2019/11/11 13:13:54 by srouhe            #+#    #+#             */
+/*   Updated: 2019/11/27 19:10:40 by srouhe           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memcpy(void *dest, const void *src, size_t n)
+char	*ft_itoa_base(uint64_t n, int base)
 {
-	unsigned char	*cdest;
-	unsigned char	*csrc;
-	unsigned int	i;
+	char	*str;
+	int		i;
+	int		len;
 
-	if (!dest && !src)
+	if (base < 2 || base > 16 || (base != 10 && n < 0))
 		return (NULL);
-	cdest = (unsigned char *)dest;
-	csrc = (unsigned char *)src;
+	len = ft_count_digits(n, base);
+	str = (char*)malloc(sizeof(*str) * (len + 1));
 	i = 0;
-	while (i < n)
+	while (i < len)
 	{
-		cdest[i] = csrc[i];
-		i++;
+		if (base > 10 && (n % base >= 10))
+			str[i++] = (n % base) - 10 + 'a';
+		else
+			str[i++] = (n % base) + '0';
+		n /= base;
 	}
-	return (dest);
+	str[i] = '\0';
+	return (ft_strrev(str));
 }

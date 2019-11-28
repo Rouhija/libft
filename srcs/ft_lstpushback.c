@@ -1,32 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_lstpushback.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: srouhe <srouhe@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/16 18:47:19 by srouhe            #+#    #+#             */
-/*   Updated: 2019/10/17 12:22:30 by srouhe           ###   ########.fr       */
+/*   Created: 2019/11/03 17:26:53 by srouhe            #+#    #+#             */
+/*   Updated: 2019/11/03 17:29:56 by srouhe           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memcpy(void *dest, const void *src, size_t n)
+void	ft_lstpushback(t_list **alst, t_list *new)
 {
-	unsigned char	*cdest;
-	unsigned char	*csrc;
-	unsigned int	i;
-
-	if (!dest && !src)
-		return (NULL);
-	cdest = (unsigned char *)dest;
-	csrc = (unsigned char *)src;
-	i = 0;
-	while (i < n)
+	if (alst && *alst)
 	{
-		cdest[i] = csrc[i];
-		i++;
+		while ((*alst)->next)
+			*alst = (*alst)->next;
+		(*alst)->next = new;
 	}
-	return (dest);
+	else
+		*alst = new;
 }
