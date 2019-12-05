@@ -6,7 +6,7 @@
 /*   By: srouhe <srouhe@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/02 13:42:22 by srouhe            #+#    #+#             */
-/*   Updated: 2019/12/05 15:32:22 by srouhe           ###   ########.fr       */
+/*   Updated: 2019/12/05 16:08:46 by srouhe           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@
 
 # define ABS(x) ((x) < 0) ? -(x) : (x)
 # define PASS (void)0
-# define BUF_SIZE 8
+# define BUF_SIZE 255
 # define FLAGS "#0- +"
 # define CONVERSION "cspdiouxXfeEgGb%"
 

@@ -6,7 +6,7 @@
 /*   By: srouhe <srouhe@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/02 12:58:13 by srouhe            #+#    #+#             */
-/*   Updated: 2019/12/05 15:35:15 by srouhe           ###   ########.fr       */
+/*   Updated: 2019/12/05 16:07:34 by srouhe           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,8 @@ int					ft_printf(const char *restrict format, ...)
 	while ((p->index = ft_lfind(p->fptr, '%')) != -1)
 	{
 		p->tmp = ft_memdup(p->fptr, p->index);
-		ft_lfind(p->tmp, '{') != -1 ? parse_colors(&p) : fill_buffer(&p);
+		ft_lfind(p->tmp, '{') != -1 ? parse_colors(&p) : PASS;
+		fill_buffer(&p);
 		p->fptr += p->index + 1;
 		parse_format(&p);
 		p->c ? format_argumet(&p) : PASS;

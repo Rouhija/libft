@@ -4,7 +4,6 @@
 
 int		main(void)
 {
-	ft_printf("Big fmt %.3s\n", "TESTI");
-	ft_printf("HEXA %p\n", 1234599);
+	ft_printf("Long string {red} now red {blue} then blue {normal} %s\n", "the end.");
 	return (0);
 }

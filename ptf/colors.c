@@ -6,7 +6,7 @@
 /*   By: srouhe <srouhe@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/14 12:42:46 by srouhe            #+#    #+#             */
-/*   Updated: 2019/12/05 15:26:45 by srouhe           ###   ########.fr       */
+/*   Updated: 2019/12/05 16:07:08 by srouhe           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,6 @@ static char		*ft_replace(t_ptf **p, char *org, char *rep, char *wth)
 
 void			parse_colors(t_ptf **p)
 {
-	return ;
 	if (ft_strstr((*p)->tmp, "{black}"))
 		(*p)->tmp = ft_replace(p, (*p)->tmp, "{black}", BLACK);
 	if (ft_strstr((*p)->tmp, "{red}"))

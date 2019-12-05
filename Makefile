@@ -6,7 +6,7 @@
 #    By: srouhe <srouhe@student.hive.fi>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/15 16:29:02 by srouhe            #+#    #+#              #
-#    Updated: 2019/12/05 15:39:54 by srouhe           ###   ########.fr        #
+#    Updated: 2019/12/05 16:06:20 by srouhe           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -62,7 +62,7 @@ norm:
 	norminette includes/*.h
 	norminette ptf/*.c
 
-test: $(NAME)
+test: re
 	@/bin/rm -f a.out
 	@clang $(FLAGS) main.c -I $(HDRS) -L. -lft
 
