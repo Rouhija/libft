@@ -1,29 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memdup.c                                        :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: srouhe <srouhe@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/18 14:11:15 by srouhe            #+#    #+#             */
-/*   Updated: 2019/12/05 15:30:55 by srouhe           ###   ########.fr       */
+/*   Created: 2019/11/28 20:20:17 by srouhe            #+#    #+#             */
+/*   Updated: 2019/12/05 15:35:53 by srouhe           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-void			*ft_memdup(void const *src, size_t n)
+void	hex_prefix(t_ptf **p)
 {
-	unsigned char	*p1;
-	unsigned char	*p2;
-	void			*r;
+	int		i;
+	char	*r;
 
-	if (!(r = ft_memalloc(n)))
-		return (NULL);
-	p1 = (unsigned char *)src;
-	p2 = (unsigned char *)r;
-	while (*p1 && n-- > 0)
-		*p2++ = *p1++;
-	*p2 = '\0';	
-	return (r);
+	i = 0;
+	(*p)->tmplen += 2;
+	r = ft_memalloc(sizeof(char) * (*p)->tmplen);
+	r[0] = '0';
+	r[1] = 'x';
+	while (i < (int)(*p)->tmplen)
+	{
+		r[i + 2] = (*p)->tmp[i];
+		i++;
+	}
+	free((*p)->tmp);
+	(*p)->tmp = ft_memdup(r, (*p)->tmplen);
+	free(r);
 }

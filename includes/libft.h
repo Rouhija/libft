@@ -6,7 +6,7 @@
 /*   By: srouhe <srouhe@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/15 16:29:36 by srouhe            #+#    #+#             */
-/*   Updated: 2019/11/27 19:11:40 by srouhe           ###   ########.fr       */
+/*   Updated: 2019/12/05 15:32:29 by srouhe           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -133,6 +133,8 @@ char				*ft_itoa_base(uint64_t nb, int base);
 */
 
 int					ft_count_digits(uint64_t n, int base);
+int					ft_lfind(const char *s, int c);
+int					ft_check_c(char c, char *str);
 char				*ft_putchar_w(wint_t c);
 char				*ft_putstr_w(wchar_t *str);
 char				*ft_strupper(char *str);
