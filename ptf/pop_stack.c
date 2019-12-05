@@ -6,7 +6,7 @@
 /*   By: srouhe <srouhe@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/03 15:35:10 by srouhe            #+#    #+#             */
-/*   Updated: 2019/12/05 12:18:34 by srouhe           ###   ########.fr       */
+/*   Updated: 2019/12/05 16:28:58 by srouhe           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,8 @@ char		*pop_signed(t_ptf **p)
 		return (ft_itoa((char)va_arg((*p)->ap, int)));
 	else if ((*p)->flags & L_H)
 		return (ft_itoa((short)va_arg((*p)->ap, int)));
+	else if ((*p)->flags & L_J)
+		return (ft_itoa(va_arg((*p)->ap, intmax_t)));
 	else
 		return (ft_itoa(va_arg((*p)->ap, int)));
 }
@@ -64,6 +66,10 @@ char		*pop_unsigned(t_ptf **p)
 		nb = (unsigned char)va_arg((*p)->ap, unsigned int);
 	else if ((*p)->flags & L_H)
 		nb = (unsigned short)va_arg((*p)->ap, unsigned int);
+	else if ((*p)->flags & L_Z)
+		nb = (u_int64_t)va_arg((*p)->ap, size_t);
+	else if ((*p)->flags & L_J)
+		nb = (u_int64_t)va_arg((*p)->ap, uintmax_t);
 	else
 		nb = (u_int64_t)va_arg((*p)->ap, unsigned int);
 	return (ft_itoa_base(nb, base));

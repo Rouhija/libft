@@ -6,12 +6,11 @@
 #    By: srouhe <srouhe@student.hive.fi>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/15 16:29:02 by srouhe            #+#    #+#              #
-#    Updated: 2019/12/05 16:06:20 by srouhe           ###   ########.fr        #
+#    Updated: 2019/12/05 16:13:26 by srouhe           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	=	libft.a
-
 HDRS	=	includes/
 
 FILES	=	ft_atoi.c ft_bzero.c ft_count_digits.c ft_count_leading.c ft_count_trailing.c \

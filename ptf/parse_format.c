@@ -6,11 +6,15 @@
 /*   By: srouhe <srouhe@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/29 16:08:25 by srouhe            #+#    #+#             */
-/*   Updated: 2019/12/05 15:35:04 by srouhe           ###   ########.fr       */
+/*   Updated: 2019/12/05 16:27:35 by srouhe           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+/*
+** Specify flags [#0-+ ]
+*/
 
 static void			flags(t_ptf **p)
 {
@@ -34,6 +38,10 @@ static void			flags(t_ptf **p)
 	(*p)->fptr += i;
 }
 
+/*
+** Specify minimum field width
+*/
+
 static void			min_width(t_ptf **p)
 {
 	int		i;
@@ -48,6 +56,10 @@ static void			min_width(t_ptf **p)
 		i += ft_count_digits((*p)->width, 10);
 	(*p)->fptr += i;
 }
+
+/*
+** Specify precision
+*/
 
 static void			precision(t_ptf **p)
 {
@@ -71,6 +83,10 @@ static void			precision(t_ptf **p)
 	}
 	(*p)->fptr += i;
 }
+
+/*
+** Specify length modifier [h, hh, l, ll, j, z]
+*/
 
 static void			len_modifier(t_ptf **p)
 {
