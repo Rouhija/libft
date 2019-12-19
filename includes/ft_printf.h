@@ -6,7 +6,7 @@
 /*   By: srouhe <srouhe@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/02 13:42:22 by srouhe            #+#    #+#             */
-/*   Updated: 2019/12/05 16:22:54 by srouhe           ###   ########.fr       */
+/*   Updated: 2019/12/13 19:49:38 by srouhe           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,7 @@
 ** -------- HEADERS --------
 */
 
-# include <stdio.h>
 # include <stdarg.h>
-# include <stdlib.h>
-# include <unistd.h>
 # include "libft.h"
 
 /*
@@ -41,8 +38,6 @@
 ** -------- MACROS --------
 */
 
-# define ABS(x) ((x) < 0) ? -(x) : (x)
-# define PASS (void)0
 # define BUF_SIZE 255
 # define FLAGS "#0- +"
 # define CONVERSION "cspdiouxXfeEgGbzj%"
@@ -101,8 +96,6 @@ typedef struct	s_mod
 /*
 ** -------- FUNCTIONS --------
 */
-
-int				ft_printf(const char *restrict format, ...);
 
 void			parse_arg(t_ptf **p);
 void			parse_format(t_ptf **p);

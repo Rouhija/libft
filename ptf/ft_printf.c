@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: srouhe <srouhe@student.hive.fi>            +#+  +:+       +#+        */
+/*   By: srouhe <srouhe@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/02 12:58:13 by srouhe            #+#    #+#             */
-/*   Updated: 2019/12/05 16:28:19 by srouhe           ###   ########.fr       */
+/*   Updated: 2019/12/18 12:09:27 by srouhe           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,8 +55,11 @@ void				fill_buffer(t_ptf **p)
 		if ((*p)->buf_index == BUF_SIZE || (*p)->buf[(*p)->buf_index] == '\n')
 			flush_buffer(p);
 	}
-	ft_bzero((void *)(*p)->tmp, ft_strlen((const char *)(*p)->tmp));
-	free((*p)->tmp);
+	if ((*p)->tmp)
+	{
+		free((*p)->tmp);
+		(*p)->tmp = NULL;
+	}
 	(*p)->width = 0;
 	(*p)->flags = 0;
 	(*p)->prec = 0;
@@ -89,7 +92,6 @@ int					ft_printf(const char *restrict format, ...)
 	while ((p->index = ft_lfind(p->fptr, '%')) != -1)
 	{
 		p->tmp = ft_memdup(p->fptr, p->index);
-		ft_lfind(p->tmp, '{') != -1 ? parse_colors(&p) : PASS;
 		fill_buffer(&p);
 		p->fptr += p->index + 1;
 		parse_format(&p);

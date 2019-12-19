@@ -6,7 +6,7 @@
 /*   By: srouhe <srouhe@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/11 13:13:54 by srouhe            #+#    #+#             */
-/*   Updated: 2019/11/27 19:10:40 by srouhe           ###   ########.fr       */
+/*   Updated: 2019/12/11 21:16:41 by srouhe           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ char	*ft_itoa_base(uint64_t n, int base)
 	int		i;
 	int		len;
 
-	if (base < 2 || base > 16 || (base != 10 && n < 0))
+	if (base < 2 || base > 16)
 		return (NULL);
 	len = ft_count_digits(n, base);
 	str = (char*)malloc(sizeof(*str) * (len + 1));

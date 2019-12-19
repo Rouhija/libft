@@ -6,7 +6,7 @@
 /*   By: srouhe <srouhe@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/29 16:08:25 by srouhe            #+#    #+#             */
-/*   Updated: 2019/12/05 16:27:35 by srouhe           ###   ########.fr       */
+/*   Updated: 2019/12/09 13:08:20 by srouhe           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -132,6 +132,6 @@ void				parse_format(t_ptf **p)
 	if ((*p)->flags & F_ZERO && !((*p)->flags & PREC) &&
 		!((*p)->flags & F_MINUS))
 		(*p)->padc = '0';
-	(*p)->c = ft_check_c((*p)->fptr[i], CONVERSION) ? (*p)->fptr[i] : 0;
+	(*p)->c = ft_strchr(CONVERSION, (*p)->fptr[i]) ? (*p)->fptr[i] : 0;
 	(*p)->fptr += i + 1;
 }

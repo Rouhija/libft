@@ -6,7 +6,7 @@
 /*   By: srouhe <srouhe@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/03 15:35:10 by srouhe            #+#    #+#             */
-/*   Updated: 2019/12/05 16:28:58 by srouhe           ###   ########.fr       */
+/*   Updated: 2019/12/17 20:34:30 by srouhe           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,19 +15,24 @@
 char		*pop_string(t_ptf **p)
 {
 	char	*r;
+	char	*pop;
 
 	if (!(r = va_arg((*p)->ap, char *)))
-		r = "(null)";
-	return (ft_memdup(r, ft_strlen(r)));
+		pop = ft_strdup("(null)");
+	else
+		pop = ft_strdup(r);
+	return (pop);
 }
 
 char		*pop_char(t_ptf **p)
 {
 	char	r[2];
+	char	*s;
 
 	r[0] = va_arg((*p)->ap, int);
 	r[1] = '\0';
-	return (ft_memdup(r, 2));
+	s = ft_strdup(r);
+	return (s);
 }
 
 char		*pop_signed(t_ptf **p)

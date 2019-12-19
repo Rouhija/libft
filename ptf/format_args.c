@@ -6,7 +6,7 @@
 /*   By: srouhe <srouhe@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/03 19:18:32 by srouhe            #+#    #+#             */
-/*   Updated: 2019/12/05 16:30:47 by srouhe           ###   ########.fr       */
+/*   Updated: 2019/12/11 20:56:32 by srouhe           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,8 @@ static void		mods_nbr(t_ptf **p)
 static void		mods_str(t_ptf **p)
 {
 	(*p)->flags |= (*p)->flags & PREC ? PRECSTR : NUL;
+	if ((*p)->width)
+		(*p)->flags |= (*p)->flags & F_MINUS ? PADTRAIL : PADLEAD;
 }
 
 /*
@@ -57,11 +59,11 @@ void			format_argumet(t_ptf **p)
 {
 	int		i;
 
-	if (ft_check_c((*p)->c, "di"))
+	if (ft_strchr("di", (*p)->c))
 		(*p)->tmp = pop_signed(p);
 	else if ((*p)->c == 's')
 		(*p)->tmp = pop_string(p);
-	else if (ft_check_c((*p)->c, "ouxXpb"))
+	else if (ft_strchr("ouxXpb", (*p)->c))
 		(*p)->tmp = pop_unsigned(p);
 	else if ((*p)->c == 'c')
 		(*p)->tmp = pop_char(p);

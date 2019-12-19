@@ -6,7 +6,7 @@
 /*   By: srouhe <srouhe@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/15 16:29:36 by srouhe            #+#    #+#             */
-/*   Updated: 2019/12/05 15:32:29 by srouhe           ###   ########.fr       */
+/*   Updated: 2019/12/09 13:06:22 by srouhe           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,13 @@
 # include <stdint.h>
 # include <unistd.h>
 # include <wchar.h>
+
+/*
+** -------- MACROS --------
+*/
+
+# define ABS(x) ((x) < 0) ? -(x) : (x)
+# define PASS (void)0
 
 /*
 ** -------- TYPEDEFS --------
@@ -129,12 +136,18 @@ char				*ft_itoa(long long n);
 char				*ft_itoa_base(uint64_t nb, int base);
 
 /*
+** -------- PROJECTS --------
+*/
+
+int					ft_printf(const char *restrict format, ...);
+int					ft_get_next_line(const int fd, char **line);
+
+/*
 ** -------- ADDITIONAL FUNCTIONS --------
 */
 
 int					ft_count_digits(uint64_t n, int base);
 int					ft_lfind(const char *s, int c);
-int					ft_check_c(char c, char *str);
 char				*ft_putchar_w(wint_t c);
 char				*ft_putstr_w(wchar_t *str);
 char				*ft_strupper(char *str);

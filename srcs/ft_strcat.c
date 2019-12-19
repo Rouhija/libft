@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strcat.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: srouhe <srouhe@student.hive.fi>            +#+  +:+       +#+        */
+/*   By: srouhe <srouhe@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/15 18:29:32 by srouhe            #+#    #+#             */
-/*   Updated: 2019/10/18 17:03:15 by srouhe           ###   ########.fr       */
+/*   Updated: 2019/12/17 11:15:47 by srouhe           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,6 @@ char	*ft_strcat(char *restrict s1, const char *restrict s2)
 		i++;
 		j++;
 	}
-	s1[j] = '\0';
+	s1[j] = 0;
 	return (s1);
 }
