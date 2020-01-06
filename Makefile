@@ -6,13 +6,13 @@
 #    By: srouhe <srouhe@student.hive.fi>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/15 16:29:02 by srouhe            #+#    #+#              #
-#    Updated: 2019/12/19 10:29:34 by srouhe           ###   ########.fr        #
+#    Updated: 2020/01/05 15:01:45 by srouhe           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	=	libft.a
 HDRS	=	includes/
-C 		=	clang
+C 		=	gcc
 
 FILES	=	ft_atoi.c ft_bzero.c ft_count_digits.c ft_count_leading.c ft_count_trailing.c \
 		    ft_isalnum.c ft_isalpha.c ft_isascii.c ft_isdigit.c ft_isprint.c  ft_iswhitespace.c \
@@ -26,7 +26,8 @@ FILES	=	ft_atoi.c ft_bzero.c ft_count_digits.c ft_count_leading.c ft_count_trail
 	    	ft_strnew.c ft_strnstr.c ft_strrchr.c ft_strsplit.c ft_strstr.c ft_strsub.c \
 	    	ft_strtrim.c ft_tolower.c ft_toupper.c ft_print_bits.c ft_lstpushback.c ft_strchr_len.c \
 	    	ft_itoa_base.c ft_strrev.c ft_get_next_line.c ft_pow.c ft_putchar_w.c ft_putstr_w.c \
-	    	ft_strupper.c ft_lfind.c
+	    	ft_strupper.c ft_lfind.c ft_pathjoin.c ft_realloc.c ft_freestrarr.c ft_putnstr.c \
+			ft_str_isempty.c ft_str_replace.c
 
 PTF		= 	colors.c \
 			format_args.c \

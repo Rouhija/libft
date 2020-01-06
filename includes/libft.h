@@ -6,7 +6,7 @@
 /*   By: srouhe <srouhe@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/15 16:29:36 by srouhe            #+#    #+#             */
-/*   Updated: 2019/12/09 13:06:22 by srouhe           ###   ########.fr       */
+/*   Updated: 2020/01/05 15:12:29 by srouhe           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,20 @@
 # include <stdint.h>
 # include <unistd.h>
 # include <wchar.h>
+
+/*
+** -------- COLORS --------
+*/
+
+# define BLACK "\033[01;30m"
+# define RED "\033[01;31m"
+# define GREEN "\033[01;32m"
+# define YELLOW "\033[01;33m"
+# define BLUE "\033[01;34m"
+# define MAGNETA "\033[01;35m"
+# define CYAN "\033[01;36m"
+# define WHITE "\033[01;37m"
+# define NORMAL "\033[0;39m"
 
 /*
 ** -------- MACROS --------
@@ -148,11 +162,17 @@ int					ft_get_next_line(const int fd, char **line);
 
 int					ft_count_digits(uint64_t n, int base);
 int					ft_lfind(const char *s, int c);
+int					ft_str_isempty(const char *s);
+char				*ft_str_replace(char *org, char *rep, char *wth);
 char				*ft_putchar_w(wint_t c);
 char				*ft_putstr_w(wchar_t *str);
 char				*ft_strupper(char *str);
+char				*ft_pathjoin(char *dirname, char *filename);
 void				ft_print_hex(uint64_t n);
 void				ft_print_bits(uint64_t bits, int len);
+void				*ft_realloc(void *ptr, size_t old_s, size_t new_s);
+void				ft_freestrarr(char **arr);
+void				ft_putnstr(char const *s, size_t n);
 size_t				ft_leading_char_count(char const *s, int (*f)(int));
 size_t				ft_trailing_char_count(char const *s, int (*f)(int));
 size_t				ft_strchr_len(const char *s, int c);

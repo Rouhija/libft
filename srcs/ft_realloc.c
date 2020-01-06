@@ -1,18 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_iswhitespace.c                                  :+:      :+:    :+:   */
+/*   ft_realloc.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: srouhe <srouhe@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/18 14:09:58 by srouhe            #+#    #+#             */
-/*   Updated: 2020/01/05 13:14:23 by srouhe           ###   ########.fr       */
+/*   Created: 2019/12/23 15:00:33 by srouhe            #+#    #+#             */
+/*   Updated: 2020/01/05 18:39:57 by srouhe           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_is_whitespace(int c)
+#include "libft.h"
+
+void	*ft_realloc(void *ptr, size_t old_s, size_t new_s)
 {
-	if (c == ' ' || c == '\n' || c == '\t' || c == '\r' || c == '\v')
-		return (1);
-	return (0);
+	void	*new;
+
+	if (!ptr)
+		return (NULL);
+	if (!(new = ft_memalloc(new_s)))
+	{
+		free(ptr);
+		return (NULL);
+	}
+	ft_memcpy(new, ptr, old_s < new_s ? old_s : new_s);
+	free(ptr);
+	return (new);
 }

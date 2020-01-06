@@ -1,18 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_iswhitespace.c                                  :+:      :+:    :+:   */
+/*   ft_freestrarr.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: srouhe <srouhe@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/18 14:09:58 by srouhe            #+#    #+#             */
-/*   Updated: 2020/01/05 13:14:23 by srouhe           ###   ########.fr       */
+/*   Created: 2020/01/03 16:05:22 by srouhe            #+#    #+#             */
+/*   Updated: 2020/01/04 00:30:20 by srouhe           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_is_whitespace(int c)
+#include "libft.h"
+
+void	ft_freestrarr(char **arr)
 {
-	if (c == ' ' || c == '\n' || c == '\t' || c == '\r' || c == '\v')
-		return (1);
-	return (0);
+	int		i;
+
+	i = 0;
+	if (arr)
+	{
+		while (arr[i])
+		{
+			free(arr[i]);
+			i++;
+		}
+		free(arr);
+		arr = NULL;
+	}
 }
