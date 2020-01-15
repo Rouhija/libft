@@ -6,7 +6,7 @@
 /*   By: srouhe <srouhe@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/15 16:29:36 by srouhe            #+#    #+#             */
-/*   Updated: 2020/01/05 15:12:29 by srouhe           ###   ########.fr       */
+/*   Updated: 2020/01/10 21:01:22 by srouhe           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,12 @@ typedef struct		s_list
 	size_t			content_size;
 	struct s_list	*next;
 }					t_list;
+
+typedef struct		s_point
+{
+	int				x;
+	int				y;
+}					t_point;
 
 /*
 ** -------- STRING FUNCTIONS --------
@@ -153,7 +159,7 @@ char				*ft_itoa_base(uint64_t nb, int base);
 ** -------- PROJECTS --------
 */
 
-int					ft_printf(const char *restrict format, ...);
+int					ft_printf(int fd, const char *restrict format, ...);
 int					ft_get_next_line(const int fd, char **line);
 
 /*
@@ -163,6 +169,8 @@ int					ft_get_next_line(const int fd, char **line);
 int					ft_count_digits(uint64_t n, int base);
 int					ft_lfind(const char *s, int c);
 int					ft_str_isempty(const char *s);
+int					ft_endswith(const char *ends, char *with);
+char				*ft_rfind(const char *s, int c);
 char				*ft_str_replace(char *org, char *rep, char *wth);
 char				*ft_putchar_w(wint_t c);
 char				*ft_putstr_w(wchar_t *str);
