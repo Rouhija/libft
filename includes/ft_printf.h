@@ -84,20 +84,20 @@ typedef struct	s_mod
 ** -------- FUNCTIONS --------
 */
 
+char			*pop_signed(t_ptf **p);
+char			*pop_unsigned(t_ptf **p);
+char			*pop_string(t_ptf **p);
+char			*pop_char(t_ptf **p);
+
 void			parse_arg(t_ptf **p);
 void			parse_format(t_ptf **p);
-void			parse_colors(t_ptf **p);
 void			format_argumet(t_ptf **p);
 void			fill_buffer(t_ptf **p);
+void			flush_buffer(t_ptf **p);
 void			prec_nbr(t_ptf **p);
 void			prec_str(t_ptf **p);
 void			padding_leading(t_ptf **p);
 void			padding_trailing(t_ptf **p);
 void			hex_prefix(t_ptf **p);
-
-char			*pop_signed(t_ptf **p);
-char			*pop_unsigned(t_ptf **p);
-char			*pop_string(t_ptf **p);
-char			*pop_char(t_ptf **p);
 
 #endif

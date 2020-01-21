@@ -1,21 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   tester.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: srouhe <srouhe@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/19 13:33:06 by srouhe            #+#    #+#             */
-/*   Updated: 2019/12/05 17:38:17 by srouhe           ###   ########.fr       */
+/*   Created: 2020/01/21 20:52:47 by srouhe            #+#    #+#             */
+/*   Updated: 2020/01/21 21:04:45 by srouhe           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#include "libft.h"
 
-# define BUFF_SIZE	32000
-
-# include <stdlib.h>
-# include <unistd.h>
-
-#endif
+int		main(void)
+{
+	if (!re_match("^exa.*json$", "example_filename.json"))
+		ft_putendl("RE ERROR");
+	ft_printf("%d and a truncated %.4s\n", 123, "test string");
+	return (0);
+}

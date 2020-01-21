@@ -1,18 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_toupper.c                                       :+:      :+:    :+:   */
+/*   utils.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: srouhe <srouhe@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/15 19:30:35 by srouhe            #+#    #+#             */
-/*   Updated: 2019/10/15 19:32:11 by srouhe           ###   ########.fr       */
+/*   Created: 2019/10/19 13:33:06 by srouhe            #+#    #+#             */
+/*   Updated: 2020/01/15 19:10:17 by srouhe           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_toupper(int c)
-{
-	if (c >= 97 && c <= 122)
-		return (c - 32);
-	return (c);
-}
+#ifndef UTILS_H
+# define UTILS_H
+
+# define BUFF_SIZE 32000
+
+# include "libft.h"
+
+int		matchhere(char *regexp, char *s);
+int		matchstar(int c, char *regexp, char *s);
+
+#endif
