@@ -138,7 +138,7 @@ norm:
 	norminette util/*.c
 
 test:
-	gcc -c tester.c -I includes/
+	gcc -c testing/tester.c -I includes/
 	gcc -Wall -Wextra -Werror *.o -I includes/ -L . -lft
 
 clean_test:

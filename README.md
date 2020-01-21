@@ -1,7 +1,8 @@
 # Description
 Library for functions used in Hive projects
 
-## Lightweight dptf
+## Lightweight ptf
+- printf & dprintf
 - no float support
 
 ## Regex quick reference
@@ -12,4 +13,7 @@ Library for functions used in Hive projects
 - *    matches zero or more occurrences of the previous character
 
 ## Quick testing
-`rm a.out && rm tester.o && make fclean && make && gcc -c tester.c && gcc -Wall -Wextra -Werror *.o -I includes/ -L . -lft`
+```sh
+make fclean && make && make test
+make fclean && make clean_test
+```
